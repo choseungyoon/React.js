@@ -1,12 +1,7 @@
-const a = 5;
-const b = 2;
-let name = "cho"
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log(name);
+const dayOfWeek = [];
 
-name = "yoon"
+ // Add one more day to the array
+ dayOfWeek.push("mon");
 
-console.log(name);
+ console.log(dayOfWeek);
