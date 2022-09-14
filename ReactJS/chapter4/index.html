@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="root"></div>
+</body>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+<script type="text/babel">
+
+    function Btn(props){
+        console.log(props.text + " is renderd");
+        return <button 
+        onClick = {props.onClick}
+        style = {{
+            backgroundColor : "tomato",
+            color :   "red" ,
+            padding: "10px 20px",
+            border : 0 ,
+            borderRadius : 10,
+            fontSize : props.fontSize,
+        }}>{props.text}</button>
+    }
+
+    // reder when state is changed
+    const MemorizedBtn = React.memo(Btn);
+
+    // Can declare parameter type and Check
+    Btn.propTypes = {
+        text : PropTypes.string.isRequired , 
+        fontSize : PropTypes.number,
+    }
+
+    function App() {
+        const[value , setValue] =  React.useState("Save Changes");
+
+        const changeValue = () => setValue("Revert Changes");
+
+        return (
+            <div>
+                <Btn text="Changes" fontSize = {18} />
+                <Btn text="Save" fontSize = {40} />
+
+            </div>
+        );
+
+    }
+
+    ReactDOM.render(<App/>, root);
+
+</script>
+
+</html>
