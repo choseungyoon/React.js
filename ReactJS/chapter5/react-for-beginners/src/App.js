@@ -5,11 +5,13 @@ import {
 } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
+import Nav from "./components/Nav";
 
 
 function App() {  
   return (
   <Router>
+    <Nav></Nav>
     <Switch>
       <Route path="/movie/:id">
         <Detail></Detail>
